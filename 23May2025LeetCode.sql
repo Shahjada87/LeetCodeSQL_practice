@@ -52,3 +52,26 @@ Select * from `11NotBoringMovies620`
 Where description not like '%boring%'
 AND id % 2 =1
 order by rating desc;
+
+Q.627 Swap Salary
+
+Create table if not exists 12SwapSalary627 (
+    id int PRIMARY KEY,
+    name varchar(20),
+    sex enum('F', 'M'),
+    salary int
+);
+
+INSERT into 12SwapSalary627 VALUES
+(1, 'A', 'M', 2500),
+(2, 'B', 'F', 1500),
+(3, 'C', 'M', 5500),
+(4, 'D', 'F', 500);
+
+select * from 12SwapSalary627;
+
+update `12SwapSalary627` set sex = 
+case when sex = 'M' then 'F'
+Else 'M' end
+where sex in ('M', 'F');
+select * from `12SwapSalary627`;
