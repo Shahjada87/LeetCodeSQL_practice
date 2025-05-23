@@ -28,3 +28,27 @@ Select case when count(*) > 0 then MAX(num)
 else NULL
 end as num
 From Cte;
+
+
+Q.620 Not Boring Movies
+
+Create table if not exists 11NotBoringMovies620 (
+    id int PRIMARY KEY,
+    movie varchar(255),
+    description varchar(255),
+    rating float
+);
+
+INSERT into 11NotBoringMovies620 VALUES
+(1, 'War', 'great 3D', 8.9),
+(2, 'Science', 'fiction', 8.5),
+(3, 'irish', 'boring', 6.2),
+(4, 'Ice song', 'Fantacy', 8.6),
+(5, 'House card', 'Interesting', 9.1);
+
+SELECT * from 11NotBoringMovies620;
+
+Select * from `11NotBoringMovies620`
+Where description not like '%boring%'
+AND id % 2 =1
+order by rating desc;
