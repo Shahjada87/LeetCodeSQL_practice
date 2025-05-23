@@ -75,3 +75,27 @@ case when sex = 'M' then 'F'
 Else 'M' end
 where sex in ('M', 'F');
 select * from `12SwapSalary627`;
+
+Q.1050 Actors and Directors Who Cooperated At Least Three Times
+
+Create table if not exists 13ActorsAndDirectors1050 (
+    actor_id int,
+    director_id int,
+    timeStamp int PRIMARY KEY
+);
+
+insert into 13ActorsAndDirectors1050 values
+(1, 1, 0),
+(1, 1, 1),
+(1, 1, 2),
+(1, 2, 3),
+(1, 2, 4),
+(2, 1, 5),
+(2, 1, 6);
+
+select * from 13ActorsAndDirectors1050;
+
+Select actor_id, director_id
+From `13ActorsAndDirectors1050` 
+Group by actor_id,director_id
+Having count(*) >= 3;
