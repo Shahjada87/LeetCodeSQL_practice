@@ -48,7 +48,7 @@ INSERT into 11NotBoringMovies620 VALUES
 
 SELECT * from 11NotBoringMovies620;
 
-Select * from `11NotBoringMovies620`
+Select * from 11NotBoringMovies620
 Where description not like '%boring%'
 AND id % 2 =1
 order by rating desc;
@@ -70,11 +70,11 @@ INSERT into 12SwapSalary627 VALUES
 
 select * from 12SwapSalary627;
 
-update `12SwapSalary627` set sex = 
+update 12SwapSalary627 set sex = 
 case when sex = 'M' then 'F'
 Else 'M' end
 where sex in ('M', 'F');
-select * from `12SwapSalary627`;
+select * from 12SwapSalary627;
 
 Q.1050 Actors and Directors Who Cooperated At Least Three Times
 
@@ -96,6 +96,6 @@ insert into 13ActorsAndDirectors1050 values
 select * from 13ActorsAndDirectors1050;
 
 Select actor_id, director_id
-From `13ActorsAndDirectors1050` 
+From 13ActorsAndDirectors1050 
 Group by actor_id,director_id
 Having count(*) >= 3;
