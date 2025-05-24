@@ -131,3 +131,37 @@ Having Min(s.sale_date) >= '2019-01-01' AND Max(s.sale_date) <= '2019-03-31';
 +------------+--------------+
 |          2 | Galaxy       |
 +------------+--------------+
+
+
+Q. 1141 User Activity for the Past 30 Days
+
+CREATE TABLE 17UserActivity30Days1141 (
+    user_id INT,
+    session_id int,
+    activity_date date,
+    activity_type enum ('open_session', 'end_session', 'scroll_down', 'send_message')
+);
+
+INSERT INTO 17UserActivity30Days1141 values
+(1, 1, '2019-07-20', 'open_session'),
+(1, 1, '2019-07-20', 'scroll_down'),
+(1, 1, '2019-07-20', 'end_session'),
+(2, 4, '2019-07-20', 'open_session'),
+(2, 4, '2019-07-21', 'send_message'),
+(2, 4, '2019-07-21', 'end_session'),
+(3, 2, '2019-07-21', 'open_session'),
+(3, 2, '2019-07-21', 'send_message'),
+(3, 2, '2019-07-21', 'end_session'),
+(4, 3, '2019-06-25', 'open_session'),
+(4, 3, '2019-06-25', 'end_session');
+
+
+SELECT 
+    activity_date AS day, 
+    COUNT(DISTINCT user_id) AS active_users
+FROM 17UserActivity30Days1141
+WHERE 
+    DATEDIFF('2019-07-27', activity_date) < 30 
+    AND DATEDIFF('2019-07-27', activity_date)>=0
+GROUP BY 1
+
