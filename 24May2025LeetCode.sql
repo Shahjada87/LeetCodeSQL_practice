@@ -165,3 +165,5 @@ WHERE
     AND DATEDIFF('2019-07-27', activity_date)>=0
 GROUP BY 1
 
+
+
