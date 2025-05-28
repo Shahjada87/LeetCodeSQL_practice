@@ -56,9 +56,11 @@ Select * from 21AverageSellingPrice1251;
 
 Select * from 21_1UnitsSold1251;
 
+-- Query to calculate the average selling price of each product
+-- based on the units sold within the specified date ranges
+-- and the price during those periods.
 
-
-SELECT a.product_id, IFNULL(round(SUM(a.prcie*b.units)/sum(b.units),2),0) as average_price
+SELECT a.product_id, IFNULL(round(SUM(a.prcie * b.units) / sum (b.units),2),0) as average_price
 From `21AverageSellingPrice1251` a
 Left Join 21_1UnitsSold1251 b
 on a.product_id = b.product_id
