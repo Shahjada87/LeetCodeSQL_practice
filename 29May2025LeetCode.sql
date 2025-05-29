@@ -316,7 +316,7 @@ Select * from 27FindUsersWithVlaidEMail1517;
 
 Select * 
 from 27FindUsersWithVlaidEMail1517
-where email REGEXP '^[A-Za-z][A-Za-z0-9_\.\-]*@leetcode(\\?com)?\\.com$';
+where email REGEXP '^[A-Za-z][A-Za-z0-9_.-]*@leetcode[.]com$';
 
 
 +---------+-----------+-------------------------+
