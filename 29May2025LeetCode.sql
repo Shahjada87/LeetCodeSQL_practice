@@ -121,3 +121,50 @@ Output
 Q. 1378 Replace Employee ID With The Unique Identifier
 
 create table if  not exists 24ReplaceEmployeeID1378
+(
+    id int Primary key,
+    name varchar(20)
+);
+
+insert into 24ReplaceEmployeeID1378 VALUES
+(1, 'Alice'),
+(7, 'Bob'),
+(11, 'Meir'),
+(90, 'Winston'),
+(3, 'Jonathan');
+
+create table if not exists 24_1EmployeeUNI1378
+(
+    id int,
+    unique_id int,
+    Primary key(id, unique_id)
+);
+
+insert into 24_1EmployeeUNI1378 values
+(3, 1),
+(11, 2),
+(90, 3);
+
+Select * from 24ReplaceEmployeeID1378;
+
+Select * from 24_1EmployeeUNI1378;
+
+-- Write a solution to show the unique ID of each user, 
+-- If a user does not have a unique ID replace just show null.
+
+Select b.unique_id, name
+From 24ReplaceEmployeeID1378 a
+left join 24_1EmployeeUNI1378 b
+on a.id = b.id;
+
+Output
+
++-----------+----------+
+| unique_id | name     |
++-----------+----------+
+|      NULL | Alice    |
+|         1 | Jonathan |
+|      NULL | Bob      |
+|         2 | Meir     |
+|         3 | Winston  |
++-----------+----------+
