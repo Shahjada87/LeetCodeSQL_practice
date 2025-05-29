@@ -308,14 +308,15 @@ Select * from 27FindUsersWithVlaidEMail1517;
 
 -- A valid e-mail has a prefix name and a domain where:
 
--- The prefix name is a string that may contain letters (upper or lower case), digits, underscore '_', period '.', and/or dash '-'. The prefix name must start with a letter.
---The domain is '@leetcode.com'.
+-- The prefix name is a string that may contain letters (upper or lower case), 
+-- digits, underscore '_', period '.', and/or dash '-'. The prefix name must start with a letter.
+-- The domain is '@leetcode.com'.
 -- Return the result table in any order.
 
 
 Select * 
 from 27FindUsersWithVlaidEMail1517
-where email REGEXP '^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode[.]com';
+where email REGEXP '^[A-Za-z][A-Za-z0-9_\.\-]*@leetcode(\\?com)?\\.com$';
 
 
 +---------+-----------+-------------------------+
