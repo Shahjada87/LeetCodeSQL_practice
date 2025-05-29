@@ -37,7 +37,7 @@ Question Numbers - 1280
 Praacticed one random question from already solved leetCode problems.. Q.1141
 
 Questions solved today - 3 Easy qestions on leetcode..
-Question Numbers - 1327, 
+Question Numbers - 1327, 1378, 1407, 1484
 
 
 
