@@ -118,3 +118,6 @@ Output
 | Leetcode Solutions | 130  |
 | Leetcode Kit       | 100  |
 
+Q. 1378 Replace Employee ID With The Unique Identifier
+
+create table if  not exists 24ReplaceEmployeeID1378
