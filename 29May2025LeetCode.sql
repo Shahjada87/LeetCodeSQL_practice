@@ -36,6 +36,15 @@ From 1activity1141
 where activity_date BETWEEN DATE_ADD('2019-07-27', Interval -29 DAY) AND '2019-07-27'
 group by activity_date;
 
+
+Output
+
+| day        | active_users |
+| ---------- | ------------ |
+| 2019-07-20 | 2            |
+| 2019-07-21 | 2            |
+
+
 ------------------
 
 use leetcode;
@@ -100,3 +109,12 @@ inner join 23ProductsOrderedInAPeriod1327 b
 on a.product_id = b.product_id
 where a.units >= 100
 group by b.product_name;
+
+
+Output
+
+| product_name       | unit |
+| ------------------ | ---- |
+| Leetcode Solutions | 130  |
+| Leetcode Kit       | 100  |
+
