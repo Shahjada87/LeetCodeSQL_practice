@@ -168,3 +168,74 @@ Output
 |         2 | Meir     |
 |         3 | Winston  |
 +-----------+----------+
+
+
+Q.1407 Top travellers
+
+create table if not exists 25TopTravellers1407
+(
+    id int Primary key,
+    name varchar(30)
+);
+
+insert into 25TopTravellers1407 VALUES
+(1, 'Alice'),
+(2, 'Bob'),
+(3, 'Alex'),
+(4, 'Donald'),
+(7, 'Lee'),
+(13, 'Jonathan'),
+(19, 'Elvis');
+
+create table if not exists 25_1Rides1407
+(
+    id int primary key,
+    user_id int,
+    distance int
+);
+
+insert into 25_1Rides1407 values
+(1, 1, 120),
+(2, 2, 317),
+(3, 3, 222),
+(4, 7, 100),
+(5, 13, 312),
+(6, 19, 50),
+(7, 7, 120),
+(8, 19, 400),
+(9, 7, 230);
+
+
+Select * from 25TopTravellers1407;
+
+Select * from 25_1Rides1407;
+
+-- Write a solution to report the distance traveled by each user.
+-- Return the result table ordered by travelled_distance in descending order, 
+-- if two or more users traveled the same distance, order them by their name in ascending order.
+
+Select a.name, coalesce(sum(b.distance), 0) as travelled_distance
+From 25TopTravellers1407 a
+left join 25_1Rides1407 b 
+on a.id = b.user_id
+group by a.id
+order by travelled_distance DESC, a.name ASC;
+
+Output
+
++----------+--------------------+
+| name     | travelled_distance |
++----------+--------------------+
+| Elvis    |                450 |
+| Lee      |                450 |
+| Bob      |                317 |
+| Jonathan |                312 |
+| Alex     |                222 |
+| Alice    |                120 |
+| Donald   |                  0 |
++----------+--------------------+
+
+
+
+
+
