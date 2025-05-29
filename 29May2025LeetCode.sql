@@ -236,6 +236,62 @@ Output
 +----------+--------------------+
 
 
+Q.1484 Group sold products by the date
+
+Create table if not exists 26GroupSoldProductsByDate1484
+(
+    sell_date date,
+    product varchar(30)
+);
+
+insert into 26GroupSoldProductsByDate1484 values
+('2020-05-30', 'Headphone'),
+('2020-06-01', 'Pencil'),
+('2020-06-02', 'Mask'),
+('2020-05-30', 'Basketball'),
+('2020-06-01', 'Bible'),
+('2020-06-02', 'Mask'),
+('2020-05-30', 'T-Shirt');
+
+Select * from 26GroupSoldProductsByDate1484;
+
+-- Write a solution to find for each date the number of different products sold and their names.
+
+-- The sold products names for each date should be sorted lexicographically.
+
+-- Return the result table ordered by sell_date.
+
+
+Select sell_date, count(DISTINCT product) as num_sold, 
+group_concat(DISTINCT product ORDER BY product ASC) as products
+From 26GroupSoldProductsByDate1484
+Group by sell_date
+Order by sell_date;
+
+Output
+
++------------+----------+------------------------------+
+| sell_date  | num_sold | products                     |
++------------+----------+------------------------------+
+| 2020-05-30 |        3 | Basketball,Headphone,T-Shirt |
+| 2020-06-01 |        2 | Bible,Pencil                 |
+| 2020-06-02 |        1 | Mask                         |
++------------+----------+------------------------------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
