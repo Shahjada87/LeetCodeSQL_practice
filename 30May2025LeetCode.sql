@@ -49,3 +49,43 @@ left join 2_1UnitsSold1251 b
 on a.product_id = b.product_id 
 where b.purchase_date BETWEEN a.start_date AND a.end_date
 group by a.product_id; 
+
+
+--------------------------------------------------------------------------
+ show tables;
+
+
+Q.1527 Patients with a condition
+
+Create table if not exists 28PatientsWithCondition1527(
+    patient_id int Primary Key,
+    patient_name varchar(50),
+    conditions varchar(50)
+);
+
+insert into 28PatientsWithCondition1527 VALUES
+(1, 'Daniel', 'YFEV COUGH'),
+(2, 'Alice', ''),
+(3, 'Bob', 'DIAB100 MYOP'),
+(4, 'George', 'ACNE DIAB100'),
+(5, 'Alain', 'DIAB201');
+
+--Write a solution to find the patient_id, patient_name, and conditions 
+--of the patients who have Type I Diabetes. Type I Diabetes always starts with DIAB1 prefix.
+--Return the result table in any order.
+
+select *
+from  28PatientsWithCondition1527
+where conditions like 'DIAB1%' OR conditions like '% DIAB1%'
+
+
+--------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
