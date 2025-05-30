@@ -43,12 +43,21 @@ Select * from 2_1UnitsSold1251;
 -- and the price during those periods.
 
 
-Select a.product_id as product_id, IFNULL(round(sum(a.prcie * b.units) / sum(b.units),2),0 as avearage_price
+Select a.product_id as product_id, IFNULL(round(sum(a.prcie * b.units) / sum(b.units),2),0) as avearage_price
 From 2AverageSellingPrice1251 a
 left join 2_1UnitsSold1251 b
 on a.product_id = b.product_id 
 where b.purchase_date BETWEEN a.start_date AND a.end_date
 group by a.product_id; 
+
+Output
+
++------------+----------------+
+| product_id | avearage_price |
++------------+----------------+
+|          1 |           6.96 |
+|          2 |          16.96 |
++------------+----------------+
 
 
 --------------------------------------------------------------------------
@@ -90,6 +99,65 @@ Output
 
 --------------------------------------------------------------------------
 
+
+
+Q.1581 Customer Who Visited but Did Not Make Any Transactions
+
+create table if not exists 29CustomerVisitedButDidNotMakeTrasanction1581(
+    visit_id int Primary Key,
+    customer_id int
+);
+
+insert into 29CustomerVisitedButDidNotMakeTrasanction1581 values
+(1, 23),
+(2, 9),
+(4, 30),
+(5, 54),
+(6, 96),
+(7, 54),
+(8, 54);
+
+
+create table if not exists 29_1Transactions1581(
+    transaction_id int Primary key,
+    visit_id int,
+    amount int
+);
+
+
+insert into 29_1Transactions1581 values 
+(2, 5, 310),
+(3, 5, 300),
+(9, 5, 200),
+(12, 1, 910),
+(13, 2, 970);
+
+
+-- Write a solution to find the IDs of the users who visited 
+-- without making any transactions and the number of times they made these types of visits.
+-- Return the result table sorted in any order.
+
+
+Select a.customer_id, count(a.visit_id) as cust_no_trans
+From 29CustomerVisitedButDidNotMakeTrasanction1581 a 
+left join 29_1Transactions1581 b
+on a.visit_id = b.visit_id
+where b.transaction_id IS NULL
+group by a.customer_id;
+
+
+Output
+
++-------------+---------------+
+| customer_id | cust_no_trans |
++-------------+---------------+
+|          30 |             1 |
+|          96 |             1 |
+|          54 |             2 |
++-------------+---------------+
+
+
+--------------------------------------------------------------------------
 
 
 
