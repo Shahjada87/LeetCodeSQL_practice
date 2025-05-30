@@ -78,9 +78,17 @@ select *
 from  28PatientsWithCondition1527
 where conditions like 'DIAB1%' OR conditions like '% DIAB1%'
 
+Output
+
++------------+--------------+--------------+
+| patient_id | patient_name | conditions   |
++------------+--------------+--------------+
+|          3 | Bob          | DIAB100 MYOP |
+|          4 | George       | ACNE DIAB100 |
++------------+--------------+--------------+
+
 
 --------------------------------------------------------------------------
-
 
 
 
