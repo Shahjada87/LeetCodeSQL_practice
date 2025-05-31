@@ -36,11 +36,15 @@ Question Numbers - 1280
 
 Praacticed one random question from already solved leetCode problems.. Q.1141
 
-Questions solved today - 3 Easy qestions on leetcode..
+Questions solved today - 5 Easy qestions on leetcode..
 Question Numbers - 1327, 1378, 1407, 1484, 1517
 
+**30th May 2025**
 
+Praacticed one random question from already solved leetCode problems.. Q.1251
 
+Questions solved today - 2 Easy qestions on leetcode..
+Question Numbers - 1527, 1581,
 
 
 
