@@ -50,9 +50,11 @@ Question Numbers - 1527, 1581
 
 Praacticed one random question from already solved leetCode problems.. Q.1148
 
-Questions solved today -  Easy qestions on leetcode..
+Questions solved today - 2 Easy qestions on leetcode..
 Question Numbers - 1587, 1633
 
+**1st June 2025**
 
+Praacticed one random question from already solved leetCode problems.. Q.619
 
 
