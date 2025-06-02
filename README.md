@@ -57,4 +57,9 @@ Question Numbers - 1587, 1633
 
 Praacticed one random question from already solved leetCode problems.. Q.619
 
+**2nd June 2025**
 
+Praacticed one random question from already solved leetCode problems.. Q.1068
+
+Questions solved today - 1 Easy qestions on leetcode..
+Question Numbers - 1667
