@@ -62,3 +62,67 @@ Select s.product_name , p.year, p.price
 from 5ProductSalesAnalysisI1068 p
 left join 5Product1068 s
 on p.product_id = s.product_id;
+
+
+Output
+
++--------------+------+-------+
+| product_name | year | price |
++--------------+------+-------+
+| Nokia        | 2008 |  5000 |
+| Nokia        | 2009 |  5000 |
+| Apple        | 2011 |  9000 |
++--------------+------+-------+
+3 rows in set (0.01 sec)
+
+--------------------------------------------------------------------------
+
+Use leetcode;
+
+show tables;
+
+
+Q.1667 Fix names in a TABLE
+
+create table if not exists 32FixNamesInTable1667(
+    user_id int Primary key,
+    name varchar(50)
+);
+
+
+Insert into 32FixNamesInTable1667 VALUES
+(1,"shahjada"),
+(2,"suMaiya"),
+(3,"abdur");
+
+mysql> select * from 32FixNamesInTable1667;
++---------+----------+
+| user_id | name     |
++---------+----------+
+|       1 | shahjada |
+|       2 | suMaiya  |
+|       3 | abdur    |
++---------+----------+
+
+--Write a solution to fix the names so that only the first character is uppercase and the rest are lowercase.
+--Return the result table ordered by user_id.
+
+SELECT user_id, CONCAT(
+    UPPER(LEFT(name, 1)),
+    LOWER(SUBSTRING(name, 2))
+) AS name
+FROM 32FixNamesInTable1667;
+
+Output
+
++---------+----------+
+| user_id | name     |
++---------+----------+
+|       1 | Shahjada |
+|       2 | Sumaiya  |
+|       3 | Abdur    |
++---------+----------+
+3 rows in set (0.03 sec)
+
+--------------------------------------------------------------------------
+
