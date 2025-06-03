@@ -176,4 +176,55 @@ Output
 --------------------------------------------------------------------------
 
 
+Q. 1731 The number of employees which report to each employee
 
+
+create table if not exists 35Employees1731(
+    employee_id int primary key,
+    name varchar(30),
+    reports_to int,
+    age int
+)
+
+insert into 35Employees1731 values
+(9, 'Hercy', NULL, 43),
+(6, 'Alice', 9, 41),
+(4, 'Bob', 9, 36),
+(2, 'Winston', NULL, 37);
+
+mysql> select * from 35Employees1731;
++-------------+---------+------------+------+
+| employee_id | name    | reports_to | age  |
++-------------+---------+------------+------+
+|           2 | Winston |       NULL |   37 |
+|           4 | Bob     |          9 |   36 |
+|           6 | Alice   |          9 |   41 |
+|           9 | Hercy   |       NULL |   43 |
++-------------+---------+------------+------+
+
+
+--For this problem, we will consider a manager an employee who has at least 1 other employee reporting to them.
+--Write a solution to report the ids and the names of all managers, the number of employees who report directly to them, and the average age of the reports rounded to the nearest integer.
+--Return the result table ordered by employee_id.
+
+With cte as 
+(Select reports_to, count(employee_id) as reports_count, ROUND(AVG(age),0) as average_age
+FROM 35Employees1731
+where reports_to is not null
+group by reports_to)
+Select a.reports_to, b.name, a.reports_count, a.average_age
+FROm cte a
+left join 35Employees1731 b
+on a.reports_to = b.employee_id
+order by b.employee_id;
+
+Output
+
++------------+-------+---------------+-------------+
+| reports_to | name  | reports_count | average_age |
++------------+-------+---------------+-------------+
+|          9 | Hercy |             2 |          39 |
++------------+-------+---------------+-------------+
+
+
+--------------------------------------------------------------------------
