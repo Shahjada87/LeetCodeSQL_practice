@@ -61,5 +61,5 @@ Praacticed one random question from already solved leetCode problems.. Q.619
 
 Praacticed one random question from already solved leetCode problems.. Q.1068
 
-Questions solved today - 1 Easy qestions on leetcode..
-Question Numbers - 1667
+Questions solved today - 2 Easy qestions on leetcode..
+Question Numbers - 1667, 1693
