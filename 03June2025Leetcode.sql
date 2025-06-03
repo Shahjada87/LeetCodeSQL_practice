@@ -95,7 +95,7 @@ From 6_2Examinations1280
 group by student_id, subject_name
 )
 Select a.*,
-case when count is not null then count else 0 end attended_exams
+case when count is not null then count else 0 end as attended_exams
 from 
 cte a
 left join cte2 b
@@ -124,5 +124,56 @@ Output
 +-------------+--------------+--------------+----------------+
 
 --------------------------------------------------------------------------
+
+use leetcode;
+
+show tables;
+
+Q. 1729 Find Followers Count
+
+create table if not exists 34FindFollowersCount1729(
+    user_id int,
+    follower_id int,
+    primary key (user_id, follower_id)
+);
+
+insert into 34FindFollowersCount1729 values
+(0,1),
+(1,0),
+(2,0),
+(2,1);
+
+mysql> select * from 34FindFollowersCount1729;
++---------+-------------+
+| user_id | follower_id |
++---------+-------------+
+|       0 |           1 |
+|       1 |           0 |
+|       2 |           0 |
+|       2 |           1 |
++---------+-------------+
+
+
+--Write a solution that will, for each user, return the number of followers.
+--Return the result table ordered by user_id in ascending order.
+
+Select Distinct user_id, count(follower_id) as followers
+From 34FindFollowersCount1729
+group by user_id
+order by user_id; 
+
+Output
+
++---------+-----------+
+| user_id | followers |
++---------+-----------+
+|       0 |         1 |
+|       1 |         1 |
+|       2 |         2 |
++---------+-----------+
+
+
+--------------------------------------------------------------------------
+
 
 
