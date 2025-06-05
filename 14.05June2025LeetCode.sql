@@ -158,3 +158,47 @@ Output
 +------------+--------+-------+
 
 --------------------------------------------------------------------------
+
+use leetcode;
+
+show tables;
+
+
+Q. 1873 Calculate special bonus
+
+Create table if not exists 40CalculateSpecialBonus1873(
+    employee_id int primary key,
+    name varchar(50),
+    salary int
+);
+
+insert into 40CalculateSpecialBonus1873 values
+(2, 'Meir', 3000),
+(3, 'Michael', 3800),
+(7, 'Addilyn', 7400),
+(8, 'Juan', 6100),
+(9, 'Kannon', 7700);
+
+mysql> select * from 40CalculateSpecialBonus1873;
++-------------+---------+--------+
+| employee_id | name    | salary |
++-------------+---------+--------+
+|           2 | Meir    |   3000 |
+|           3 | Michael |   3800 |
+|           7 | Addilyn |   7400 |
+|           8 | Juan    |   6100 |
+|           9 | Kannon  |   7700 |
++-------------+---------+--------+
+
+
+--Write a solution to calculate the bonus of each employee. 
+--The bonus of an employee is 100% of their salary if the ID of the employee is an odd number
+--and the employee's name does not start with the character 'M'. The bonus of an employee is 0 otherwise.
+--Return the result table ordered by employee_id.
+
+Select employee_id, 
+case when employee_id % 2 != 0 AND name not like 'M%' then salary 
+else 0 end as bonus 
+from 40CalculateSpecialBonus1873
+order by employee_id;
+
