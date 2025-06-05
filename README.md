@@ -77,3 +77,12 @@ Praacticed one random question from already solved leetCode problems.. Q.1141
 
 Questions solved today - 3 Easy qestions on leetcode..
 Question Numbers - 1741, 1757, 1789
+
+**5th June 2025**
+
+Praacticed one random question from already solved leetCode problems.. Q. 1327
+
+Questions solved today - 1 Easy qestions on leetcode..
+Question Numbers - 1795, 
+
+
