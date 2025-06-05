@@ -279,3 +279,82 @@ Output
 |       8 | 2020-12-30 00:46:50 |
 +---------+---------------------+
 
+
+--------------------------------------------------------------------------
+
+
+Q. 1965 Employees With Missing Information
+
+create table if not exists 42EmployeesWithMissingInfo1965(
+    employee_id int primary key,
+    name varchar(20)
+);
+
+insert into 42EmployeesWithMissingInfo1965 values
+(2, 'Crew'),
+(4, 'Haven'),
+(5, 'Kristian');
+
+
+mysql> select * from 42EmployeesWithMissingInfo1965;
++-------------+----------+
+| employee_id | name     |
++-------------+----------+
+|           2 | Crew     |
+|           4 | Haven    |
+|           5 | Kristian |
++-------------+----------+
+
+
+create table if not exists 42_1Salaries1965(
+    employee_id int primary key,
+    salary int
+);
+
+insert into 42_1Salaries1965 values 
+(5, 76071),
+(1, 22517),
+(4, 63539);
+
+
+mysql> select * from 42_1Salaries1965;
++-------------+--------+
+| employee_id | salary |
++-------------+--------+
+|           1 |  22517 |
+|           4 |  63539 |
+|           5 |  76071 |
++-------------+--------+
+
+
+--Write a solution to report the IDs of all the employees with missing information. 
+--The information of an employee is missing if:
+--The employee's name is missing, or
+--The employee's salary is missing.
+--Return the result table ordered by employee_id in ascending order.
+
+Select employee_id from
+(Select e.employee_id
+from 42EmployeesWithMissingInfo1965 e
+left join 42_1Salaries1965 s
+on e.employee_id = s.employee_id
+where s.salary IS null 
+UNION
+select a.employee_id
+FROM 42_1Salaries1965 a
+left join 42EmployeesWithMissingInfo1965 b
+on a.employee_id = b.employee_id
+where b.name IS null) as combined_data
+order by employee_id
+
+
+Output
+
++-------------+
+| employee_id |
++-------------+
+|           1 |
+|           2 |
++-------------+
+
+
