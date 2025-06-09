@@ -112,3 +112,7 @@ Questions solved today - 1 Easy qestions on leetcode..
 
 Question Numbers - 3436
 
+**8th June 2025**
+
+Practiced one random question from already solved leetCode problems.. Q. 1757
+
