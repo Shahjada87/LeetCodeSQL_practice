@@ -116,3 +116,10 @@ Question Numbers - 3436
 
 Practiced one random question from already solved leetCode problems.. Q. 1757
 
+**9th June 2025**
+
+Practiced one random question from already solved leetCode problems.. Q. 1587
+
+Questions solved today - 1 Easy qestions on leetcode.. 
+
+Question Numbers -
