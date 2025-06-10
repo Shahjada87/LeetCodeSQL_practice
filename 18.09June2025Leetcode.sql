@@ -16,8 +16,10 @@ insert into 10BankAccountSummaryII1587 values
 (900002, 'Bob'),
 (900003, 'Charlie');
 
+rename table 10BankAccountSummaryII1587 to 11BankAccountSummaryII1587;
 
-mysql> select * from 10BankAccountSummaryII1587;
+
+mysql> select * from 11BankAccountSummaryII1587;
 +---------+---------+
 | account | name    |
 +---------+---------+
@@ -34,7 +36,9 @@ create table if not exists 10_1Transactions1587(
     transacted_on date
 );
 
-insert into 10_1Transactions1587 values
+rename table 10_1Transactions1587 to 11_1Transactions1587;
+
+insert into 11_1Transactions1587 values
 (1, 900001, 7000, '2020-08-01'),
 (2, 900001, 7000, '2020-09-01'),
 (3, 900001, -3000, '2020-09-02'),
@@ -44,7 +48,7 @@ insert into 10_1Transactions1587 values
 (7, 900003, -4000, '2020-09-11');
 
 
-mysql> select * from 10_1Transactions1587;
+mysql> select * from 11_1Transactions1587;
 +----------+---------+--------+---------------+
 | trans_id | account | amount | transacted_on |
 +----------+---------+--------+---------------+
