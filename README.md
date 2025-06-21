@@ -149,3 +149,11 @@ Practiced one random question from already solved leetCode problems.. Q. 1068
 **17th June 2025**
 
 Practiced one random question from already solved leetCode problems.. Q. 1890
+
+**21st June 2025**
+
+Questions solved today - 1 medium qestion on leetcode.. 
+
+Question Numbers - 178
+
+
