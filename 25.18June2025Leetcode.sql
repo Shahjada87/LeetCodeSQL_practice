@@ -47,5 +47,9 @@ Output
 
 
 
+select distinct Max(salary)
+from 47SecondHighestSalary176
+where id % 2 = 0
+order by salary desc 
 
 
