@@ -69,4 +69,70 @@ Output
 
 ---------------------------------------------------------------------------------------------------------
 
+-- now lets solve some new questions 
+
+
+use leetcode;
+
+show tables;
+
+
+Q. 512 Game Play Analysis II
+
+
+create table if not exists 49GamePlayAnalysis512(
+    player_id int,
+    device_id int,
+    event_date date,
+    games_played int,
+    Primary Key (player_id, event_date)
+);
+
+
+insert into 49GamePlayAnalysis512 values
+(1, 2, '2016-03-01', 5),
+(1, 2, '2016-05-02', 6),
+(2, 3, '2017-06-25', 1),
+(3, 1, '2016-03-02', 0),
+(3, 4, '2018-07-03', 5);
+
+
+mysql> select * from 49GamePlayAnalysis512;
++-----------+-----------+------------+--------------+
+| player_id | device_id | event_date | games_played |
++-----------+-----------+------------+--------------+
+|         1 |         2 | 2016-03-01 |            5 |
+|         1 |         2 | 2016-05-02 |            6 |
+|         2 |         3 | 2017-06-25 |            1 |
+|         3 |         1 | 2016-03-02 |            0 |
+|         3 |         4 | 2018-07-03 |            5 |
++-----------+-----------+------------+--------------+
+5 rows in set (0.01 sec)
+
+
+--Write a solution to report the device that is first logged in for each player. 
+--Return the result table in any order.
+
+select player_id, 
+device_id
+from 49GamePlayAnalysis512
+where (player_id, event_date) in (
+    select player_id, min(event_date)
+    from 49GamePlayAnalysis512
+    group by player_id
+);
+
+
+
+Output 
+
+
++-----------+-----------+
+| player_id | device_id |
++-----------+-----------+
+|         1 |         2 |
+|         2 |         3 |
+|         3 |         1 |
++-----------+-----------+
+3 rows in set (0.01 sec)
 
