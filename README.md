@@ -186,5 +186,47 @@ Practiced one random question from already solved leetCode problems.. Q. 176
 
 Practiced one random question from already solved leetCode problems.. Q. 178
 
+**30th June 2025**
 
+Practiced one random question from already solved leetCode problems.. Q. 1211
+
+Questions solved today - 1 easy qestion on leetcode.. 
+
+Question Numbers - 512
+
+**2nd July 2025**
+
+Practiced one random question from already solved leetCode problems.. Q. 586
+
+**3rd July 2025**
+
+Practiced one random question from already solved leetCode problems.. Q. 1211
+
+**4th July 2025**
+
+Practiced one random question from already solved leetCode problems.. Q. 1211
+
+**3rd July 2025**
+
+Practiced one random question from already solved leetCode problems.. Q. 607
+
+**3rd July 2025**
+
+Practiced one random question from already solved leetCode problems.. Q. 619
+
+**5th July 2025**
+
+Practiced one random question from already solved leetCode problems.. Q. 620
+
+**6th July 2025**
+
+Practiced one random question from already solved leetCode problems.. Q. 627
+
+**7th July 2025**
+
+Practiced one random question from already solved leetCode problems.. Q. 1075
+
+**8th July 2025**
+
+Practiced one random question from already solved leetCode problems.. Q. 1084
 
