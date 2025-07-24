@@ -135,3 +135,101 @@ Output
 |        200 |             15 |
 +------------+----------------+
 2 rows in set (0.02 sec)
+
+
+
+
+------------------------------------------------------------------------------------
+
+
+show tables;
+
+
+
+Q. 1076 Project Employees II
+
+create table if not exists 54ProjectEmployeesII_1076(
+    project_id int,
+    employee_id int,
+    primary key (project_id, employee_id)
+);
+
+
+insert into 54ProjectEmployeesII_1076 values 
+(1, 1),
+(2, 3),
+(2, 1),
+(1, 2),
+(4, 4);
+
+
+mysql> select * from 54ProjectEmployeesII_1076;
++------------+-------------+
+| project_id | employee_id |
++------------+-------------+
+|          1 |           1 |
+|          1 |           2 |
+|          2 |           1 |
+|          2 |           3 |
+|          4 |           4 |
++------------+-------------+
+5 rows in set (0.01 sec)
+
+
+
+create table if not exists 54_1Employees1076(
+    employee_id int primary key,
+    name varchar(50),
+    experience_years int
+);
+
+
+insert into 54_1Employees1076 values 
+(1, 'Khaled', 3),
+(2, 'Ali', 2),
+(3, 'John', 1),
+(4, 'Doe', 2);
+
+
+mysql> Select * from 54_1Employees1076;
++-------------+--------+------------------+
+| employee_id | name   | experience_years |
++-------------+--------+------------------+
+|           1 | Khaled |                3 |
+|           2 | Ali    |                2 |
+|           3 | John   |                1 |
+|           4 | Doe    |                2 |
++-------------+--------+------------------+
+4 rows in set (0.00 sec)
+
+
+
+-- write an sql query that reports all the project that have the most employees 
+
+
+with cte as 
+(Select a.project_id, count(a.employee_id) as count
+From 54ProjectEmployeesII_1076 a
+left join 54_1Employees1076 b
+on a.employee_id = b.employee_id
+GROUP BY a.project_id)
+select cte.project_id
+from cte 
+where cte.count = (select Max(cte.count) from cte)
+
+
+
+Output 
+
++------------+
+| project_id |
++------------+
+|          1 |
+|          2 |
++------------+
+2 rows in set (0.01 sec)
+
+---------------------------------------------------------------------------------------
+
+
+
