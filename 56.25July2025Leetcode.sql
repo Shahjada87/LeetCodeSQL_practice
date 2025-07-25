@@ -70,3 +70,76 @@ Output
 +------------+-----------+---------+------------+
 4 rows in set (0.01 sec)
 
+---------------------------------------------------------------------------------
+
+use leetcode;
+
+
+show tables;
+
+
+
+Q. 1083 Sales analysis II
+
+
+Create table if not exists 56SalesAnalysisII_1083(
+    product_id int primary key,
+    product_name varchar(50),
+    unit_price int
+);
+
+
+insert into 56SalesAnalysisII_1083 values 
+(1, 'S8', 1000),
+(2, 'G4', 800),
+(3, 'iPhone', 1400);
+
+
+
+create table if not exists 56_1Sales1083(
+    seller_id int,
+    product_id int,
+    buyer_id int,
+    sale_date date,
+    quantity int,
+    price int,
+    Foreign Key(product_id) References 56SalesAnalysisII_1083(product_id)
+);
+
+
+insert into 56_1Sales1083 values 
+(1, 1, 1, '2019-01-21', 2, 2000),
+(1, 2, 2, '2019-02-17', 1, 800),
+(2, 2, 3, '2019-06-02', 1, 800),
+(3, 3, 4, '2019-05-13', 2, 2800);
+
+
+
+-- write an sql query that reports the buyer who have bought s8 but not iphone.
+--Note that s8 and iphone are products present in the products table.
+-- return the table in any order 
+
+with cte as
+(Select buyer_id,product_id
+from 56_1Sales1083
+group by buyer_id,product_id)
+select a.buyer_id
+from cte a
+left join 56SalesAnalysisII_1083 b
+on a.product_id = b.product_id
+where b.product_name like 'S8'
+and b.product_name not like 'iphone'
+GROUP BY a.buyer_id;
+
+
+
+Output 
+
+
+
++----------+
+| buyer_id |
++----------+
+|        1 |
++----------+
+1 row in set (0.01 sec)
