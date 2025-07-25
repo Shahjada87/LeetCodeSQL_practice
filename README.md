@@ -297,8 +297,8 @@ Question Numbers - 613
 
 Practiced one random question from already solved leetCode problems.. Q. 610
 
-Questions solved today -  easy qestion on leetcode.. 
+Questions solved today - 3 easy qestion on leetcode.. 
 
-Question Numbers - 1069
+Question Numbers - 1069, 1076, 1082
 
 
