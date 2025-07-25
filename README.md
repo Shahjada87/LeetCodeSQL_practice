@@ -301,4 +301,7 @@ Questions solved today - 3 easy qestion on leetcode..
 
 Question Numbers - 1069, 1076, 1082
 
+**25th July 2025**
+
+Practiced one random question from already solved leetCode problems.. Q. 1693
 
