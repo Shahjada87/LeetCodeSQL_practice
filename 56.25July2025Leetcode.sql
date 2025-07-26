@@ -143,3 +143,30 @@ Output
 |        1 |
 +----------+
 1 row in set (0.01 sec)
+
+
+
+
+-- One more solution to this will be and this is the perfect one 
+
+
+with cte as
+(select s.*,p.product_name
+from  56_1Sales1083 s
+left join 56SalesAnalysisII_1083 p
+on s.product_id = p.product_id)
+select buyer_id
+from cte 
+where product_name = 'S8'
+And buyer_id not in (select DISTINCT buyer_id
+from cte where product_name = 'iphone' )
+
+
+Output
+
++----------+
+| buyer_id |
++----------+
+|        1 |
++----------+
+1 row in set (0.06 sec)
