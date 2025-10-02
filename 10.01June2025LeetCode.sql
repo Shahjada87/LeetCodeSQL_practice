@@ -47,7 +47,9 @@ from 4BiggestSingleNumber619
 group by num
 Having count(num) = 1)
 Select case when count(*) >= 0 then MAX(num) else null end as num
-from cte
+from cte;
+
+
 
 Output
 
